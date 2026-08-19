@@ -1,0 +1,764 @@
+/* ========================================
+   TASK LIST
+======================================== */
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* ========================================
+   TASK CARD
+======================================== */
+
+.task-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.task-card:hover {
+    border-color: #cccccc;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ========================================
+   TASK HEADER
+======================================== */
+
+.task-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+.task-title-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+.task-title {
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   PRIORITY
+======================================== */
+
+.task-priority {
+    padding: 4px 8px;
+
+    border-radius: 6px;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.task-priority-low {
+    background: #f1f1f1;
+
+    color: #666666;
+}
+
+.task-priority-medium {
+    background: #e8e8e8;
+
+    color: #444444;
+}
+
+.task-priority-high {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.task-status {
+    flex-shrink: 0;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.task-status-pending {
+    background: #f1f1f1;
+
+    color: #555555;
+}
+
+.task-status-in_progress {
+    background: #e5e5e5;
+
+    color: #222222;
+}
+
+.task-status-completed {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.task-status-cancelled {
+    background: #eeeeee;
+
+    color: #888888;
+
+    text-decoration: line-through;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.task-description {
+    margin: 12px 0 18px;
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   PROGRESS
+======================================== */
+
+.task-progress-wrapper {
+    margin-top: 18px;
+}
+
+.task-progress-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 7px;
+
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.task-progress-header strong {
+    color: #222222;
+}
+
+.task-progress {
+    width: 100%;
+
+    height: 6px;
+
+    overflow: hidden;
+
+    border-radius: 999px;
+
+    background: #eeeeee;
+}
+
+.task-progress-bar {
+    height: 100%;
+
+    border-radius: inherit;
+
+    background: #111111;
+
+    transition: width 0.3s ease;
+}
+
+
+/* ========================================
+   META
+======================================== */
+
+.task-meta {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 16px;
+
+    color: #777777;
+
+    font-size: 11px;
+}
+
+.task-meta span {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+}
+
+
+/* ========================================
+   SUBTASK
+======================================== */
+
+.task-subtasks {
+    margin-top: 18px;
+
+    padding: 14px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    background: #fafafa;
+}
+
+.task-subtasks-title {
+    margin-bottom: 10px;
+
+    color: #555555;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+.task-subtask {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 8px 0;
+
+    color: #444444;
+
+    font-size: 12px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.task-subtask:last-child {
+    border-bottom: none;
+}
+
+.task-subtask > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.task-subtask-status {
+    width: 7px;
+
+    height: 7px;
+
+    display: inline-block;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #aaaaaa;
+}
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.task-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.task-action {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #444444;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.task-action:hover {
+    border-color: #bbbbbb;
+
+    background: #f5f5f5;
+}
+
+.task-action-delete {
+    font-family: inherit;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+
+    .task-card {
+        padding: 18px;
+    }
+
+    .task-card-header {
+        flex-direction: column;
+    }
+
+    .task-status {
+        align-self: flex-start;
+    }
+
+    .task-actions {
+        flex-wrap: wrap;
+
+        justify-content: stretch;
+    }
+
+    .task-actions > a,
+    .task-actions > form {
+        flex: 1;
+    }
+
+    .task-action {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   TASK FORM
+======================================== */
+
+.task-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-help {
+    color: #888888;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   TASK FORM RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+
+    .task-form .form-section {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   TASK DETAIL
+======================================== */
+
+.task-detail-card {
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+}
+
+
+/* ========================================
+   DETAIL HEADER
+======================================== */
+
+.task-detail-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+.task-detail-title-row {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 10px;
+}
+
+.task-detail-title {
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   DETAIL SECTION
+======================================== */
+
+.task-detail-section {
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.task-detail-section h3 {
+    margin: 0 0 12px;
+
+    color: #222222;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+.task-detail-description {
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   PROGRESS
+======================================== */
+
+.task-progress-large {
+    height: 8px;
+}
+
+
+/* ========================================
+   META
+======================================== */
+
+.task-detail-meta {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.task-detail-meta-item {
+    padding: 14px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    background: #fafafa;
+}
+
+.task-detail-meta-label {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #888888;
+
+    font-size: 10px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.05em;
+}
+
+.task-detail-meta-item strong {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    color: #333333;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   PARENT TASK
+======================================== */
+
+.parent-task-link {
+    color: #222222;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   SUBTASK HEADER
+======================================== */
+
+.task-detail-section-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+.task-detail-section-header span {
+    min-width: 24px;
+
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eeeeee;
+
+    color: #555555;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   DETAIL SUBTASK
+======================================== */
+
+.task-detail-subtasks {
+    display: flex;
+
+    flex-direction: column;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.task-detail-subtask {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 14px;
+
+    color: #444444;
+
+    font-size: 13px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+.task-detail-subtask:last-child {
+    border-bottom: none;
+}
+
+.task-detail-subtask:hover {
+    background: #fafafa;
+}
+
+.task-detail-subtask > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+}
+
+.task-detail-subtask strong {
+    color: #555555;
+
+    font-size: 11px;
+}
+
+.task-no-subtask {
+    margin: 0;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   DETAIL ACTIONS
+======================================== */
+
+.task-detail-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.form-button-danger {
+    border: 1px solid #dddddd;
+
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.form-button-danger:hover {
+    background: #333333;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .task-detail-card {
+        padding: 20px;
+    }
+
+    .task-detail-title {
+        font-size: 20px;
+    }
+
+    .task-detail-meta {
+        grid-template-columns: 1fr;
+    }
+
+    .task-detail-actions {
+        flex-direction: column;
+    }
+
+    .task-detail-actions > a,
+    .task-detail-actions > form,
+    .task-detail-actions button {
+        width: 100%;
+    }
+
+}

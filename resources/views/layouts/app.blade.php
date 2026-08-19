@@ -32,7 +32,9 @@
         'resources/css/layouts.css',
         'resources/css/dashboard.css',
         'resources/css/schedule.css',
+        'resources/css/tasks.css',
         'resources/js/app.js'
+        
     ])
 
     @stack('styles')

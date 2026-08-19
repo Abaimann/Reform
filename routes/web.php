@@ -4,6 +4,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TaskController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,6 +19,9 @@ Route::middleware('auth')->group(function () {
     // Dashboard
     // Route dashboard berada di luar group karena
     // sudah memiliki middleware auth + verified.
+
+    // Tasks
+    Route::resource('tasks', TaskController::class);
 
     // Schedule
     Route::resource('schedules', ScheduleController::class);
