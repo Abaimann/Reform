@@ -31,6 +31,7 @@
         'resources/css/app.css',
         'resources/css/layouts.css',
         'resources/css/dashboard.css',
+        'resources/css/schedule.css',
         'resources/js/app.js'
     ])
 
@@ -43,12 +44,12 @@
 
     <div class="app-layout">
 
-        {{-- Desktop Sidebar --}}
+        {{-- Sidebar desktop --}}
 
         @include('layouts.sidebar')
 
 
-        {{-- Main Content --}}
+        {{-- Konten utama --}}
 
         <main class="app-main">
 
@@ -61,7 +62,7 @@
         </main>
 
 
-        {{-- Mobile Navigation --}}
+        {{-- Navigasi mobile --}}
 
         @include('layouts.mobile-nav')
 

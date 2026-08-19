@@ -376,3 +376,182 @@
 
     font-weight: 600;
 }
+
+/* ========================================
+   DETAIL SCHEDULE
+======================================== */
+
+.page-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-action-secondary {
+    background: #f1f1f1;
+    color: #111111;
+}
+
+.page-action-secondary:hover {
+    background: #e5e5e5;
+}
+
+
+/* ========================================
+   DETAIL CARD
+======================================== */
+
+.schedule-detail-card {
+    background: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ========================================
+   DETAIL HEADER
+======================================== */
+
+.schedule-detail-header {
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.schedule-detail-title-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+}
+
+.schedule-detail-title {
+    margin: 0;
+    color: #111111;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   DETAIL SECTION
+======================================== */
+
+.schedule-detail-section {
+    padding: 24px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.schedule-detail-section h3 {
+    margin: 0 0 16px;
+    color: #111111;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   DETAIL GRID
+======================================== */
+
+.schedule-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.schedule-detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.schedule-detail-label {
+    color: #888888;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.schedule-detail-value {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #222222;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.schedule-detail-description {
+    margin: 0;
+    color: #666666;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   DETAIL ACTIONS
+======================================== */
+
+.schedule-detail-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 24px;
+}
+
+.page-action-danger {
+    border: none;
+    cursor: pointer;
+
+    background: #111111;
+    color: #ffffff;
+}
+
+.page-action-danger:hover {
+    background: #333333;
+}
+
+
+/* ========================================
+   RESPONSIVE DETAIL
+======================================== */
+
+@media (max-width: 768px) {
+
+    .page-header-actions {
+        width: 100%;
+    }
+
+    .page-header-actions .page-action {
+        flex: 1;
+        text-align: center;
+    }
+
+    .schedule-detail-card {
+        padding: 20px;
+    }
+
+    .schedule-detail-title {
+        font-size: 22px;
+    }
+
+    .schedule-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .schedule-detail-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .schedule-detail-actions .page-action {
+        width: 100%;
+        text-align: center;
+    }
+
+}
