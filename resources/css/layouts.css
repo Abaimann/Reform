@@ -1,0 +1,550 @@
+/* ========================================
+   RE:FORM
+   DESIGN SYSTEM
+======================================== */
+
+:root {
+
+    /* ====================================
+       COLORS
+    ==================================== */
+
+    --color-black: #111111;
+    --color-dark: #1f1f1f;
+
+    --color-gray-dark: #444444;
+    --color-gray: #6b6b6b;
+    --color-gray-light: #a3a3a3;
+
+    --color-border: #e5e5e5;
+    --color-border-dark: #d4d4d4;
+
+    --color-background: #f7f7f7;
+    --color-surface: #ffffff;
+
+    --color-hover: #f0f0f0;
+
+
+    /* ====================================
+       SEMANTIC COLORS
+    ==================================== */
+
+    --color-bg: var(--color-background);
+
+    --color-text: var(--color-black);
+
+    --color-muted: var(--color-gray);
+
+    --color-primary: var(--color-black);
+
+    --color-primary-hover: var(--color-dark);
+
+    --color-sidebar: var(--color-surface);
+
+
+    /* ====================================
+       LAYOUT
+    ==================================== */
+
+    --sidebar-width: 250px;
+
+
+    /* ====================================
+       BORDER RADIUS
+    ==================================== */
+
+    --radius-sm: 8px;
+
+    --radius-md: 12px;
+
+    --radius-lg: 16px;
+
+    --radius-xl: 20px;
+
+
+    /* ====================================
+       SHADOW
+    ==================================== */
+
+    --shadow-sm:
+        0 1px 2px rgba(0, 0, 0, 0.04);
+
+    --shadow-md:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ========================================
+   APP LAYOUT
+======================================== */
+
+.app-layout {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    background: var(--color-background);
+}
+
+
+.app-main {
+
+    flex: 1;
+
+    min-width: 0;
+
+    margin-left: var(--sidebar-width);
+}
+
+
+.app-content {
+
+    width: 100%;
+
+    max-width: 1440px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+}
+
+
+/* ========================================
+   SIDEBAR
+======================================== */
+
+.app-sidebar {
+
+    width: var(--sidebar-width);
+
+    min-height: 100vh;
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    z-index: 100;
+
+    background: var(--color-sidebar);
+
+    border-right: 1px solid var(--color-border);
+}
+
+
+.sidebar-inner {
+
+    height: 100vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 24px 16px;
+}
+
+
+/* ========================================
+   LOGO
+======================================== */
+
+.sidebar-logo {
+
+    padding: 0 8px;
+
+    margin-bottom: 32px;
+}
+
+
+.logo-link {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.logo-mark {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 10px;
+
+    background: #111111;
+}
+
+
+.logo-mark img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+.logo-text {
+
+    color: var(--color-black);
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.02em;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.sidebar-nav {
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+}
+
+
+.nav-section {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+
+.nav-section-title {
+
+    padding: 0 12px;
+
+    margin-bottom: 8px;
+
+    color: var(--color-gray);
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.08em;
+}
+
+
+.nav-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 10px 12px;
+
+    border-radius: var(--radius-md);
+
+    color: var(--color-gray);
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.nav-item:hover {
+
+    background: var(--color-hover);
+
+    color: var(--color-black);
+}
+
+
+.nav-item.active {
+
+    background: #ededed;
+
+    color: var(--color-black);
+
+    font-weight: 600;
+}
+
+
+.nav-icon {
+
+    width: 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: currentColor;
+
+    font-size: 17px;
+}
+
+
+/* ========================================
+   SIDEBAR BOTTOM
+======================================== */
+
+.sidebar-bottom {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+
+.sidebar-user {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px;
+
+    border-top: 1px solid var(--color-border);
+}
+
+
+.user-avatar {
+
+    width: 36px;
+
+    height: 36px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #e5e5e5;
+
+    color: var(--color-black);
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.user-info {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+
+.user-name {
+
+    color: var(--color-black);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.user-email {
+
+    margin-top: 2px;
+
+    color: var(--color-gray);
+
+    font-size: 11px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* ========================================
+   MOBILE NAV
+======================================== */
+
+.mobile-nav {
+
+    display: none;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 768px) {
+
+    .app-sidebar {
+
+        display: none;
+    }
+
+
+    .app-main {
+
+        margin-left: 0;
+    }
+
+
+    .app-content {
+
+        padding: 20px 16px 90px;
+    }
+
+
+    .mobile-nav {
+
+        display: flex;
+
+        position: fixed;
+
+        left: 0;
+
+        right: 0;
+
+        bottom: 0;
+
+        z-index: 200;
+
+        height: 68px;
+
+        background: rgba(255, 255, 255, 0.96);
+
+        border-top: 1px solid var(--color-border);
+
+        backdrop-filter: blur(12px);
+
+        align-items: center;
+
+        justify-content: space-around;
+    }
+
+
+    .mobile-nav-item {
+
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 4px;
+
+        color: var(--color-gray);
+
+        font-size: 10px;
+
+        font-weight: 500;
+
+        transition: color 0.2s ease;
+    }
+
+
+    .mobile-nav-item:hover {
+
+        color: var(--color-black);
+    }
+
+
+    .mobile-nav-item.active {
+
+        color: var(--color-black);
+
+        font-weight: 600;
+    }
+
+
+    .mobile-nav-icon {
+
+        font-size: 18px;
+
+        line-height: 1;
+    }
+}
+
+
+/* ========================================
+   SMALL MOBILE
+======================================== */
+
+@media (max-width: 400px) {
+
+    .app-content {
+
+        padding-left: 14px;
+
+        padding-right: 14px;
+    }
+
+
+    .mobile-nav {
+
+        height: 64px;
+    }
+
+
+    .mobile-nav-item {
+
+        font-size: 9px;
+    }
+
+
+    .mobile-nav-icon {
+
+        font-size: 17px;
+    }
+}
