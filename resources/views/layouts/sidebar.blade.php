@@ -248,6 +248,28 @@
 
             </a>
 
+            <form
+                method="POST"
+                action="{{ route('logout') }}"
+            >
+                @csrf
+
+                <button
+                    type="submit"
+                    class="nav-item"
+                    style="width: 100%; border: none; background: transparent; text-align: left;"
+                >
+                    <span class="nav-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+                </button>
+
+            </form>
+
 
             {{-- User --}}
 

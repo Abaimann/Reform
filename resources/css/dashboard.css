@@ -277,3 +277,102 @@
         padding: 16px;
     }
 }
+
+/* ========================================
+   DASHBOARD LIST
+======================================== */
+
+.dashboard-list-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #eeeeee;
+
+    color: #444444;
+
+    font-size: 14px;
+}
+
+.dashboard-list-item:last-child {
+
+    border-bottom: none;
+}
+
+.dashboard-list-item strong {
+
+    color: #111111;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   GOAL
+======================================== */
+
+.dashboard-goal {
+
+    margin-top: 16px;
+}
+
+.dashboard-goal:first-of-type {
+
+    margin-top: 8px;
+}
+
+.dashboard-goal-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+}
+
+.dashboard-goal-header strong {
+
+    color: #111111;
+}
+
+.dashboard-goal-header span {
+
+    color: #6b6b6b;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* ========================================
+   MOOD
+======================================== */
+
+.dashboard-mood {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 16px;
+
+    color: #111111;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
