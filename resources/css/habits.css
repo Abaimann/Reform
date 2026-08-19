@@ -1,0 +1,766 @@
+/* ========================================
+   HABIT LIST
+======================================== */
+
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+
+/* ========================================
+   HABIT CARD
+======================================== */
+
+.habit-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.habit-card:hover {
+    border-color: #cccccc;
+
+    box-shadow:
+        0 5px 16px rgba(0, 0, 0, 0.04);
+}
+
+
+/* ========================================
+   HABIT HEADER
+======================================== */
+
+.habit-card-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 16px;
+}
+
+.habit-title-wrapper {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+}
+
+.habit-icon {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 10px;
+
+    background: #f1f1f1;
+
+    color: #222222;
+
+    font-size: 20px;
+}
+
+.habit-title {
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 17px;
+
+    font-weight: 700;
+}
+
+.habit-category {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    margin-top: 5px;
+
+    color: #777777;
+
+    font-size: 11px;
+}
+
+
+/* ========================================
+   STATUS
+======================================== */
+
+.habit-status {
+    flex-shrink: 0;
+
+    padding: 6px 10px;
+
+    border-radius: 7px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+.habit-status-active {
+    background: #111111;
+
+    color: #ffffff;
+}
+
+.habit-status-inactive {
+    background: #eeeeee;
+
+    color: #888888;
+}
+
+
+/* ========================================
+   DESCRIPTION
+======================================== */
+
+.habit-description {
+    margin: 16px 0 0;
+
+    color: #666666;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+}
+
+
+/* ========================================
+   HABIT META
+======================================== */
+
+.habit-meta {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-top: 18px;
+}
+
+.habit-meta-item {
+    padding: 12px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 9px;
+
+    background: #fafafa;
+}
+
+.habit-meta-label {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #888888;
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.06em;
+}
+
+.habit-meta-item strong {
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #333333;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   ACTIONS
+======================================== */
+
+.habit-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 18px;
+
+    padding-top: 14px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+.habit-action {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 34px;
+
+    padding: 0 12px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #444444;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.habit-action:hover {
+    border-color: #bbbbbb;
+
+    background: #f5f5f5;
+}
+
+.habit-action-delete {
+    font-family: inherit;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .habit-card {
+        padding: 18px;
+    }
+
+    .habit-card-header {
+        flex-direction: column;
+    }
+
+    .habit-status {
+        align-self: flex-start;
+    }
+
+    .habit-meta {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .habit-actions {
+        justify-content: stretch;
+    }
+
+    .habit-actions > a,
+    .habit-actions > form {
+        flex: 1;
+    }
+
+    .habit-action {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 420px) {
+
+    .habit-meta {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ========================================
+   HABIT FORM
+======================================== */
+
+.habit-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* ========================================
+   CHECKBOX
+======================================== */
+
+.form-checkbox {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #444444;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.form-checkbox input {
+    width: 16px;
+    height: 16px;
+
+    margin: 0;
+
+    accent-color: #111111;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+
+    .habit-form .form-section {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   HABIT DETAIL
+======================================== */
+
+.habit-detail-card {
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e5e5;
+
+    border-radius: 14px;
+}
+
+
+.habit-detail-header {
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+}
+
+
+.habit-detail-title-row {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin-bottom: 5px;
+}
+
+
+.habit-detail-title {
+    margin: 0;
+
+    color: #111111;
+
+    font-size: 24px;
+
+    font-weight: 700;
+}
+
+
+/* ========================================
+   DETAIL SECTION
+======================================== */
+
+.habit-detail-section {
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.habit-detail-section h3 {
+    margin: 0 0 12px;
+
+    color: #222222;
+
+    font-size: 13px;
+
+    font-weight: 700;
+}
+
+
+.habit-detail-description {
+    margin: 0;
+
+    color: #666666;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   DETAIL GRID
+======================================== */
+
+.habit-detail-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 10px;
+}
+
+
+.habit-detail-meta-item {
+    padding: 14px;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    background: #fafafa;
+}
+
+
+.habit-detail-meta-item strong {
+    display: block;
+
+    color: #333333;
+
+    font-size: 12px;
+}
+
+
+/* ========================================
+   COMPLETE
+======================================== */
+
+.habit-complete-section {
+    margin-top: 28px;
+
+    padding-top: 24px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.habit-complete-button {
+    width: 100%;
+
+    min-height: 46px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-family: inherit;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+
+.habit-complete-button:hover {
+    background: #333333;
+}
+
+
+.habit-completed-message {
+    padding: 14px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 9px;
+
+    background: #f5f5f5;
+
+    color: #333333;
+
+    text-align: center;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+.habit-inactive-message {
+    padding: 14px;
+
+    border-radius: 9px;
+
+    background: #eeeeee;
+
+    color: #777777;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   COMPLETION HISTORY
+======================================== */
+
+.habit-detail-section-header {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+}
+
+
+.habit-detail-section-header span {
+    min-width: 24px;
+
+    height: 24px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #eeeeee;
+
+    color: #555555;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.habit-completion-list {
+    display: flex;
+
+    flex-direction: column;
+
+    border: 1px solid #eeeeee;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.habit-completion-item {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 14px;
+
+    border-bottom: 1px solid #eeeeee;
+}
+
+
+.habit-completion-item:last-child {
+    border-bottom: none;
+}
+
+
+.habit-completion-item > div {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.habit-completion-icon {
+    width: 30px;
+
+    height: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111111;
+
+    color: #ffffff;
+
+    font-size: 12px;
+
+    font-weight: 700;
+}
+
+
+.habit-completion-item strong {
+    color: #333333;
+
+    font-size: 12px;
+}
+
+
+.habit-completion-item p {
+    margin: 3px 0 0;
+
+    color: #888888;
+
+    font-size: 11px;
+}
+
+
+.habit-completion-value {
+    color: #555555;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.habit-no-completion {
+    margin: 0;
+
+    color: #888888;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   DETAIL ACTIONS
+======================================== */
+
+.habit-detail-actions {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 8px;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+.form-button-danger {
+    border: 1px solid #dddddd;
+
+    background: #111111;
+
+    color: #ffffff;
+}
+
+
+.form-button-danger:hover {
+    background: #333333;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .habit-detail-card {
+        padding: 20px;
+    }
+
+    .habit-detail-title {
+        font-size: 20px;
+    }
+
+    .habit-detail-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .habit-detail-actions {
+        flex-direction: column;
+    }
+
+    .habit-detail-actions > a,
+    .habit-detail-actions > form,
+    .habit-detail-actions button {
+        width: 100%;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .habit-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

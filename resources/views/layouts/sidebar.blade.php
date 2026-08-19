@@ -14,10 +14,12 @@
             >
 
                 <span class="logo-mark">
+
                     <img
                         src="{{ asset('images/reform-logo.png') }}"
                         alt="RE:FORM Logo"
                     >
+
                 </span>
 
                 <span class="logo-text">
@@ -30,10 +32,11 @@
 
 
         {{-- ========================================
-            NAVIGATION
+            NAVIGASI
         ========================================= --}}
 
         <nav class="sidebar-nav">
+
 
             {{-- ====================================
                 WORKSPACE
@@ -50,7 +53,10 @@
 
                 <a
                     href="{{ route('dashboard') }}"
-                    class="nav-item {{ request()->routeIs('dashboard') ? 'active' : '' }}"
+                    class="nav-item
+                        {{ request()->routeIs('dashboard')
+                            ? 'active'
+                            : '' }}"
                 >
 
                     <span class="nav-icon">
@@ -67,8 +73,11 @@
                 {{-- Schedule --}}
 
                 <a
-                    href="#"
-                    class="nav-item"
+                    href="{{ route('schedules.index') }}"
+                    class="nav-item
+                        {{ request()->routeIs('schedules.*')
+                            ? 'active'
+                            : '' }}"
                 >
 
                     <span class="nav-icon">
@@ -85,8 +94,11 @@
                 {{-- Tasks --}}
 
                 <a
-                    href="#"
-                    class="nav-item"
+                    href="{{ route('tasks.index') }}"
+                    class="nav-item
+                        {{ request()->routeIs('tasks.*')
+                            ? 'active'
+                            : '' }}"
                 >
 
                     <span class="nav-icon">
@@ -103,8 +115,11 @@
                 {{-- Habits --}}
 
                 <a
-                    href="#"
-                    class="nav-item"
+                    href="{{ route('habits.index') }}"
+                    class="nav-item
+                        {{ request()->routeIs('habits.*')
+                            ? 'active'
+                            : '' }}"
                 >
 
                     <span class="nav-icon">
@@ -226,10 +241,11 @@
 
 
         {{-- ========================================
-            SIDEBAR BOTTOM
+            BAGIAN BAWAH SIDEBAR
         ========================================= --}}
 
         <div class="sidebar-bottom">
+
 
             {{-- Settings --}}
 
@@ -248,17 +264,27 @@
 
             </a>
 
+
+            {{-- Logout --}}
+
             <form
                 method="POST"
                 action="{{ route('logout') }}"
             >
+
                 @csrf
 
                 <button
                     type="submit"
                     class="nav-item"
-                    style="width: 100%; border: none; background: transparent; text-align: left;"
+                    style="
+                        width: 100%;
+                        border: none;
+                        background: transparent;
+                        text-align: left;
+                    "
                 >
+
                     <span class="nav-icon">
                         ↪
                     </span>
@@ -266,6 +292,7 @@
                     <span>
                         Logout
                     </span>
+
                 </button>
 
             </form>
@@ -278,7 +305,11 @@
                 <div class="user-avatar">
 
                     {{ strtoupper(
-                        substr(auth()->user()->name, 0, 1)
+                        substr(
+                            auth()->user()->name,
+                            0,
+                            1
+                        )
                     ) }}
 
                 </div>

@@ -6,6 +6,10 @@
 
 @section('content')
 
+    {{-- ========================================
+        HEADER
+    ========================================= --}}
+
     <div class="page-header">
 
         <div>
@@ -31,7 +35,7 @@
 
 
     {{-- ========================================
-        ERROR
+        PESAN ERROR
     ========================================= --}}
 
     @if ($errors->any())
@@ -58,6 +62,10 @@
 
     @endif
 
+
+    {{-- ========================================
+        FORM HABIT
+    ========================================= --}}
 
     <form
         method="POST"
@@ -90,7 +98,7 @@
             <div class="form-grid">
 
 
-                {{-- Nama --}}
+                {{-- Nama Habit --}}
 
                 <div class="form-group form-group-full">
 
@@ -223,7 +231,7 @@
 
 
         {{-- ========================================
-            TARGET
+            TARGET HABIT
         ========================================= --}}
 
         <div class="form-section">
@@ -288,7 +296,7 @@
                 </div>
 
 
-                {{-- Reminder --}}
+                {{-- Jam Pengingat --}}
 
                 <div class="form-group">
 
@@ -323,7 +331,7 @@
             <div class="form-section-header">
 
                 <h2>
-                    Status
+                    Status Habit
                 </h2>
 
                 <p>
@@ -345,9 +353,7 @@
                 >
 
                 <span>
-
                     Aktifkan habit
-
                 </span>
 
             </label>

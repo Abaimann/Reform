@@ -1,27 +1,31 @@
 @extends('layouts.app')
 
-@section('title', 'Tambah Habit — RE:FORM')
+@section('title', 'Edit Habit — RE:FORM')
 
-@section('description', 'Tambah habit baru ke RE:FORM.')
+@section('description', 'Edit habit RE:FORM.')
 
 @section('content')
+
+    {{-- ========================================
+        HEADER
+    ========================================= --}}
 
     <div class="page-header">
 
         <div>
 
             <h1 class="page-title">
-                Tambah Habit
+                Edit Habit
             </h1>
 
             <p class="page-subtitle">
-                Bangun kebiasaan baru dan konsisten setiap hari.
+                Perbarui kebiasaan dan target lu.
             </p>
 
         </div>
 
         <a
-            href="{{ route('habits.index') }}"
+            href="{{ route('habits.show', $habit) }}"
             class="schedule-back"
         >
             ← Kembali
@@ -61,11 +65,13 @@
 
     <form
         method="POST"
-        action="{{ route('habits.store') }}"
+        action="{{ route('habits.update', $habit) }}"
         class="habit-form"
     >
 
         @csrf
+
+        @method('PUT')
 
 
         {{-- ========================================
@@ -81,7 +87,7 @@
                 </h2>
 
                 <p>
-                    Tentukan kebiasaan yang ingin lu bangun.
+                    Perbarui informasi kebiasaan lu.
                 </p>
 
             </div>
@@ -103,8 +109,10 @@
                         type="text"
                         id="name"
                         name="name"
-                        value="{{ old('name') }}"
-                        placeholder="Contoh: Belajar coding"
+                        value="{{ old(
+                            'name',
+                            $habit->name
+                        ) }}"
                         maxlength="255"
                         required
                     >
@@ -124,8 +132,10 @@
                         id="description"
                         name="description"
                         rows="4"
-                        placeholder="Jelaskan kebiasaan yang ingin lu bangun..."
-                    >{{ old('description') }}</textarea>
+                    >{{ old(
+                        'description',
+                        $habit->description
+                    ) }}</textarea>
 
                 </div>
 
@@ -152,8 +162,10 @@
                             <option
                                 value="{{ $category->id }}"
                                 @selected(
-                                    old('category_id')
-                                    == $category->id
+                                    old(
+                                        'category_id',
+                                        $habit->category_id
+                                    ) == $category->id
                                 )
                             >
                                 {{ $category->name }}
@@ -186,7 +198,7 @@
                             @selected(
                                 old(
                                     'frequency',
-                                    'daily'
+                                    $habit->frequency
                                 ) === 'daily'
                             )
                         >
@@ -196,8 +208,10 @@
                         <option
                             value="weekly"
                             @selected(
-                                old('frequency')
-                                === 'weekly'
+                                old(
+                                    'frequency',
+                                    $habit->frequency
+                                ) === 'weekly'
                             )
                         >
                             Setiap minggu
@@ -206,8 +220,10 @@
                         <option
                             value="monthly"
                             @selected(
-                                old('frequency')
-                                === 'monthly'
+                                old(
+                                    'frequency',
+                                    $habit->frequency
+                                ) === 'monthly'
                             )
                         >
                             Setiap bulan
@@ -235,7 +251,7 @@
                 </h2>
 
                 <p>
-                    Tentukan target yang ingin dicapai.
+                    Tentukan target kebiasaan lu.
                 </p>
 
             </div>
@@ -257,9 +273,11 @@
                         type="number"
                         id="target"
                         name="target"
-                        value="{{ old('target', 1) }}"
+                        value="{{ old(
+                            'target',
+                            $habit->target
+                        ) }}"
                         min="1"
-                        step="1"
                         required
                     >
 
@@ -279,8 +297,10 @@
                         type="text"
                         id="unit"
                         name="unit"
-                        value="{{ old('unit', 'session') }}"
-                        placeholder="Contoh: menit, halaman, session"
+                        value="{{ old(
+                            'unit',
+                            $habit->unit
+                        ) }}"
                         maxlength="50"
                         required
                     >
@@ -300,7 +320,14 @@
                         type="time"
                         id="reminder_time"
                         name="reminder_time"
-                        value="{{ old('reminder_time') }}"
+                        value="{{ old(
+                            'reminder_time',
+                            $habit->reminder_time
+                                ? \Carbon\Carbon::parse(
+                                    $habit->reminder_time
+                                )->format('H:i')
+                                : ''
+                        ) }}"
                     >
 
                     <small class="form-help">
@@ -327,7 +354,7 @@
                 </h2>
 
                 <p>
-                    Tentukan apakah habit langsung aktif.
+                    Atur apakah habit sedang aktif.
                 </p>
 
             </div>
@@ -340,14 +367,15 @@
                     name="is_active"
                     value="1"
                     @checked(
-                        old('is_active', true)
+                        old(
+                            'is_active',
+                            $habit->is_active
+                        )
                     )
                 >
 
                 <span>
-
                     Aktifkan habit
-
                 </span>
 
             </label>
@@ -362,7 +390,7 @@
         <div class="form-actions">
 
             <a
-                href="{{ route('habits.index') }}"
+                href="{{ route('habits.show', $habit) }}"
                 class="form-button form-button-secondary"
             >
                 Batal
@@ -372,7 +400,7 @@
                 type="submit"
                 class="form-button form-button-primary"
             >
-                Simpan Habit
+                Simpan Perubahan
             </button>
 
         </div>

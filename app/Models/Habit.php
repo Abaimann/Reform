@@ -20,22 +20,38 @@ class Habit extends Model
         'is_active',
     ];
 
+
     protected $casts = [
+        'reminder_time' => 'datetime:H:i',
         'is_active' => 'boolean',
     ];
 
+
+    /**
+     * User pemilik habit.
+     */
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
+
+    /**
+     * Kategori habit.
+     */
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
 
+
+    /**
+     * Riwayat penyelesaian habit.
+     */
     public function completions(): HasMany
     {
-        return $this->hasMany(HabitCompletion::class);
+        return $this->hasMany(
+            HabitCompletion::class
+        );
     }
 }

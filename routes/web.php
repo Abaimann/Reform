@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ScheduleController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\HabitController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -18,7 +19,16 @@ Route::middleware('auth')->group(function () {
 
     // Dashboard
     // Route dashboard berada di luar group karena
-    // sudah memiliki middleware auth + verified.
+
+
+    // Habits
+    Route::resource('habits', HabitController::class);
+
+    Route::post(
+        '/habits/{habit}/complete',
+        [HabitController::class, 'complete']
+    )->name('habits.complete');
+    
 
     // Tasks
     Route::resource('tasks', TaskController::class);

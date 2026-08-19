@@ -14,12 +14,19 @@ class HabitCompletion extends Model
         'notes',
     ];
 
+
     protected $casts = [
         'completed_at' => 'date',
     ];
 
+
+    /**
+     * Habit yang diselesaikan.
+     */
     public function habit(): BelongsTo
     {
-        return $this->belongsTo(Habit::class);
+        return $this->belongsTo(
+            Habit::class
+        );
     }
 }
