@@ -355,7 +355,86 @@
 
         @endif
 
+        {{-- ========================================
+    UBAH STATUS
+========================================= --}}
 
+<div class="schedule-detail-section">
+
+    <h3>
+        Status Jadwal
+    </h3>
+
+    <form
+        method="POST"
+        action="{{ route(
+            'schedules.update-status',
+            $schedule
+        ) }}"
+        class="status-form"
+    >
+
+        @csrf
+
+        @method('PATCH')
+
+        <div class="status-form-row">
+
+            <select
+                name="status"
+                class="status-select"
+            >
+
+                <option
+                    value="upcoming"
+                    @selected($schedule->status === 'upcoming')
+                >
+                    Akan datang
+                </option>
+
+                <option
+                    value="ongoing"
+                    @selected($schedule->status === 'ongoing')
+                >
+                    Berlangsung
+                </option>
+
+                <option
+                    value="completed"
+                    @selected($schedule->status === 'completed')
+                >
+                    Selesai
+                </option>
+
+                <option
+                    value="skipped"
+                    @selected($schedule->status === 'skipped')
+                >
+                    Dilewati
+                </option>
+
+                <option
+                    value="cancelled"
+                    @selected($schedule->status === 'cancelled')
+                >
+                    Dibatalkan
+                </option>
+
+            </select>
+
+
+            <button
+                type="submit"
+                class="form-button form-button-primary"
+            >
+                Simpan Status
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
         {{-- ========================================
             AKSI
         ========================================= --}}

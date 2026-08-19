@@ -997,3 +997,61 @@
         width: 100%;
     }
 }
+
+/* ========================================
+   STATUS FORM
+======================================== */
+
+.status-form {
+    margin-top: 4px;
+}
+
+.status-form-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-select {
+    min-width: 220px;
+    padding: 10px 12px;
+
+    border: 1px solid #dddddd;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #111111;
+
+    font-size: 13px;
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.status-select:focus {
+    border-color: #111111;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 0, 0, 0.06);
+}
+
+
+/* ========================================
+   STATUS FORM RESPONSIVE
+======================================== */
+
+@media (max-width: 640px) {
+
+    .status-form-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .status-select {
+        width: 100%;
+        min-width: 0;
+    }
+
+}

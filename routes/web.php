@@ -21,6 +21,10 @@ Route::middleware('auth')->group(function () {
 
     // Schedule
     Route::resource('schedules', ScheduleController::class);
+    Route::patch(
+        '/schedules/{schedule}/status',
+        [ScheduleController::class, 'updateStatus']
+    )->name('schedules.update-status');
 
     // Profile
     Route::get('/profile', [ProfileController::class, 'edit'])

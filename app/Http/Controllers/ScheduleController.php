@@ -258,7 +258,38 @@ class ScheduleController extends Controller
                 'Jadwal berhasil diperbarui.'
             );
     }
+    
+/**
+ * Memperbarui status jadwal.
+ */
+public function updateStatus(
+    Request $request,
+    Schedule $schedule
+): RedirectResponse {
 
+    abort_unless(
+        $schedule->user_id === auth()->id(),
+        403
+    );
+
+    $validated = $request->validate([
+        'status' => [
+            'required',
+            'in:upcoming,ongoing,completed,skipped,cancelled',
+        ],
+    ]);
+
+    $schedule->update([
+        'status' => $validated['status'],
+    ]);
+
+    return redirect()
+        ->route('schedules.show', $schedule)
+        ->with(
+            'success',
+            'Status jadwal berhasil diperbarui.'
+        );
+}
 
     /**
      * Menghapus jadwal.
